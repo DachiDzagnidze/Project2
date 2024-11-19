@@ -1,0 +1,383 @@
+/* Base styles for all screen sizes */
+:root {
+    --primary-color: #00adb5;
+    --secondary-color: #29292b;
+    --hover-color: #2dcec8;
+    --text-color: #d3d3e7;
+    --background-color: #1b1b1b;
+    --winning-color: #ffeb3b;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+/* Scoreboard section */
+.scoreboard {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 25px;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 160px;
+    right: 5%;
+    width: 250px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    transition: bottom 0.3s ease;
+    z-index: 10;
+}
+
+/* Table styles inside the scoreboard */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Default grid for larger screens */
+.grid {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 10px;
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+/* Grid box styles (updated for image size control) */
+.grid .box {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;  /* Ensure the content stays within the box */
+}
+
+.grid .box img {
+    max-width: 80%;    /* Ensure the image fits inside the box */
+    max-height: 80%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on boxes */
+.grid .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.7);
+    background-color: var(--hover-color);
+}
+
+/* Highlight winning boxes (adjusts image visibility) */
+.grid .box.winning {
+    background-color: var(--winning-color);
+    transform: scale(1.1);
+    animation: pulse 1.5s infinite;
+    color: black;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 235, 59, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+    }
+}
+
+/* Button styles (no changes needed, just for completion) */
+#button, #turn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#button:hover, #turn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+h3 {
+    margin: 0;
+}
+
+.button-img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* Highlight winning boxes */
+.grid .box.winning {
+    background-color: var(--winning-color);
+    transform: scale(1.1);
+    animation: pulse 1.5s infinite;
+    color: black;
+}
+
+/* Glow effect for winning boxes */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 235, 59, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+    }
+}
+
+/* Buttons section */
+.buttons {
+    margin-top: 20px;
+}
+
+#button, #turn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#button:hover, #turn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+h3 {
+    margin: 0;
+}
+
+.button-img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* Responsive design */
+
+main {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Start from the top */
+    align-items: center; /* Center horizontally */
+    margin: 20px;
+    padding: 0;
+}
+
+/* Title styling */
+h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 173, 181, 0.7);
+}
+
+/* Scoreboard section */
+.scoreboard {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 25px;
+    border-radius: 25px;
+    width: 250px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    z-index: 10;
+    text-align: center;
+    margin-top: 20px; /* Add some space between h1 and scoreboard */
+    margin-bottom: 20px; /* Add space below */
+}
+
+/* Table styles inside the scoreboard */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Base layout for the main content */
+main {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Start from the top */
+    align-items: center; /* Center horizontally */
+    margin: 20px;
+    padding: 0;
+}
+
+/* Title styling */
+h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 173, 181, 0.7);
+}
+
+/* Scoreboard section */
+.scoreboard {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 25px;
+    border-radius: 25px;
+    width: 250px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    z-index: 10;
+    text-align: center;
+    margin-top: 30px; /* Increased space between h1 and scoreboard */
+    margin-bottom: 30px; /* Add space below */
+}
+
+/* Table styles inside the scoreboard */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Responsive adjustments for small devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .scoreboard {
+        width: 180px; /* Smaller width on mobile */
+        padding: 15px;
+        font-size: 14px;
+        margin-top: 25px; /* Slightly reduced space for small screens */
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+/* Mobile phones (landscape) */
+@media (min-width: 601px) and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .scoreboard {
+        width: 200px; /* Slightly larger width */
+        padding: 18px;
+        font-size: 16px;
+        margin-top: 30px; /* Adjusted space for better positioning */
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Tablets (portrait and landscape) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .scoreboard {
+        width: 220px;
+        padding: 20px;
+        font-size: 18px;
+        margin-top: 35px; /* Increase space to avoid touching */
+    }
+
+    table {
+        font-size: 16px;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+}
+
+/* Desktops and larger devices */
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .scoreboard {
+        width: 250px;
+        padding: 25px;
+        font-size: 20px;
+        margin-top: 40px; /* Adjusted for larger screens */
+    }
+
+    table {
+        font-size: 18px;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+}
